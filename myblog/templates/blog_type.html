@@ -1,0 +1,11 @@
+{% extends  'base.html' %}
+
+{%block title%}{{blog_type.type_name}}{%endblock%}
+{% block content %}
+    <hr>
+    <h3>{{blog_type.type_name}}</h3>
+        {% for blog in blogtypes %}
+            <a href ="{% url  'blog_details'  blog.pk  %}">{{ blog.title }}</a>
+            <p>{{blog.content|truncatechars:80}}</p>
+        {%  endfor %}
+{% endblock %}
